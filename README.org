@@ -9,7 +9,7 @@ legacy boot and EFI boot.  Clone this repo, then type:
 
 The resulting images can then be found in =result= directory.
 
-* Rescueing your NixOS on ZFS installation
+* Rescue your NixOS on ZFS installation
 
 The resulting image can be used to boot any operating system supported
 by GRUB, including but not limited to FreeBSD, GNU/Linux, and
