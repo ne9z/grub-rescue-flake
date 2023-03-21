@@ -11,7 +11,7 @@
           pkgs.stdenv.mkDerivation {
               name = "grubrescue";
               buildInputs = with pkgs; [
-                grub2 grub2_efi xorriso
+                grub2 grub2_efi xorriso mtools
                   ];
               phases = ["buildPhase"];
               buildPhase = ''
