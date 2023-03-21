@@ -45,6 +45,13 @@ I'm the author of [[https://openzfs.github.io/openzfs-docs/Getting%20Started/Nix
      normal
    #+end_src
    Now the NixOS boot menu should be loaded. You are done.
+7. After booting into NixOS, execute
+   #+begin_src sh
+     nixos-rebuild boot --install-bootloader
+   #+end_src
+   to reinstall GRUB. Whatever bootloader currently inside
+   =/boot/efis/disk1/EFI/BOOT/BOOTX64.efi= will be overwritten, so make
+   sure to back up that file first.
 
 Although I’m not a GRUB fanatic like [[https://www.gnu.org/software/grub/manual/grub/html_node/Role-of-a-boot-loader.html][Gordon Matzigkeit]], I still
 appreciate GNU GRUB as a well engineered piece of software. I don’t
