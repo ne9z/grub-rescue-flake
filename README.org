@@ -33,20 +33,17 @@ I'm the author of [[https://openzfs.github.io/openzfs-docs/Getting%20Started/Nix
      # output
      # Partition hd0,gpt2: Filesystem type fat, UUID 2269-6692
    #+end_src
-
    Clearly not your boot pool, let’s try again with =hd1=:
    #+begin_src sh
      ls (hd1,gpt2)
      # output
      # Partition hd1,gpt2: Filesystem type zfs - Label `bpool' - Last modification time ...
    #+end_src
-
 6. That’s it! Now type:
    #+begin_src sh
      set prefix=(hd1,gpt2)/nixos/root/@/grub
      normal
    #+end_src
-
    Now the NixOS boot menu should be loaded. You are done.
 
 Although I’m not a GRUB fanatic like [[https://www.gnu.org/software/grub/manual/grub/html_node/Role-of-a-boot-loader.html][Gordon Matzigkeit]], I still
