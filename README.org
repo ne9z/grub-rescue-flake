@@ -20,38 +20,8 @@ I'm the author of [[https://openzfs.github.io/openzfs-docs/Getting%20Started/Nix
 
 1. Build the Nix flake, or download the appropriate prebuilt image
    from [[https://github.com/ne9z/grub-rescue-flake/releases][this repo]].
-2. Write the image to a disk and boot your computer from it.  You will
-   be greeted with a GRUB shell.
-3. Inside GRUB shell, type =insmod zfs= to load zfs support module in GRUB.
-4. Then, type =ls= to show all disks on your computer.  As specified
-   in the root on ZFS installation guide, your boot pool would be on
-   the second partition, that is, =(hdX,gpt2)=, with =X= being a digit.
-5. =(hd0,gptX)= might be the GRUB rescue disk itself, so, check which
-   disk is really your internal disk drive with:
-   #+begin_src sh
-     ls (hd0,gpt2)
-     # output
-     # Partition hd0,gpt2: Filesystem type fat, UUID 2269-6692
-   #+end_src
-   Clearly not your boot pool, let’s try again with =hd1=:
-   #+begin_src sh
-     ls (hd1,gpt2)
-     # output
-     # Partition hd1,gpt2: Filesystem type zfs - Label `bpool' - Last modification time ...
-   #+end_src
-6. That’s it! Now type:
-   #+begin_src sh
-     set prefix=(hd1,gpt2)/nixos/root/@/grub
-     normal
-   #+end_src
-   Now the NixOS boot menu should be loaded. You are done.
-7. After booting into NixOS, execute
-   #+begin_src sh
-     nixos-rebuild boot --install-bootloader
-   #+end_src
-   to reinstall GRUB. Whatever bootloader currently inside
-   =/boot/efis/disk1/EFI/BOOT/BOOTX64.efi= will be overwritten, so make
-   sure to back up that file first.
+2. Write the image to a disk and boot your computer from it.
+3. Now NixOS boot menu should appear.
 
 Although I’m not a GRUB fanatic like [[https://www.gnu.org/software/grub/manual/grub/html_node/Role-of-a-boot-loader.html][Gordon Matzigkeit]], I still
 appreciate GNU GRUB as a well engineered piece of software. I don’t
