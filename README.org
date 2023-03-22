@@ -23,7 +23,6 @@ I'm the author of [[https://openzfs.github.io/openzfs-docs/Getting%20Started/Nix
 2. Write the image to a disk and boot your computer from it.
 3. Now NixOS boot menu should appear.
 
-Although I’m not a GRUB fanatic like [[https://www.gnu.org/software/grub/manual/grub/html_node/Role-of-a-boot-loader.html][Gordon Matzigkeit]], I still
-appreciate GNU GRUB as a well engineered piece of software. I don’t
-really get the hate against it, which I’ve also encountered elsewhere
-on the internet.
+* Boot other EFI entries
+
+Download [[https://sourceforge.net/projects/refind/][rEFInd]] disk image instead.
