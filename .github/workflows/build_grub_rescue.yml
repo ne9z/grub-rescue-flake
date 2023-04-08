@@ -16,9 +16,10 @@ jobs:
       - name: Build GRUB rescue
         run: |
           nix build
+          mkdir artifact
+          cp -r $(readlink result) artifact
       - uses: actions/upload-artifact@v3
         with:
           name: grub-rescue-img
           path: |
-            result/grub-rescue-i386-pc.img
-            result/grub-rescue-x86_64-efi.img
+            artifact
