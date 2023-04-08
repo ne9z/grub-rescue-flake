@@ -1,0 +1,24 @@
+name: "Build GRUB rescue"
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: cachix/install-nix-action@v20
+        with:
+          nix_path: nixpkgs=channel:nixos-unstable
+      - name: Build GRUB rescue
+        run: |
+          nix build
+      - uses: actions/upload-artifact@v3
+        with:
+          name: grub-rescue-img
+          path: |
+            result/grub-rescue-i386-pc.img
+            result/grub-rescue-x86_64-efi.img
