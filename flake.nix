@@ -1,7 +1,7 @@
 {
   description = "Build GRUB rescue image";
 
-  inputs = { nixpkgs.url = "github:nixos/nixpkgs/nixos-22.11"; };
+  inputs = { nixpkgs.url = "github:nixos/nixpkgs/5b7cd5c39befee629be284970415b6eb3b0ff000"; };
 
   outputs = { self, nixpkgs }: {
 
