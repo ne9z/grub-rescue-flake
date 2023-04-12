@@ -17,6 +17,7 @@
         mkdir -p $out
         export LD_PRELOAD=${pkgs.libfaketime}/lib/libfaketime.so.1
         export FAKETIME="1970-01-01 00:00:00"
+        ${pkgs.grub2}/bin/grub-script-check --verbose iso/boot/grub/grub.cfg
         ${pkgs.grub2}/bin/grub-mkrescue --output $out/grub-rescue-i386-pc.img iso
         ${pkgs.grub2_efi}/bin/grub-mkrescue --output $out/grub-rescue-x86_64-efi.img iso
       '';
